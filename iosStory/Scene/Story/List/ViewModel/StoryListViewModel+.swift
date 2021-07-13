@@ -55,6 +55,7 @@ extension StoryListViewModel {
                 return story
             }
             var storys = self.model.storys.value
+            //주석
             storys.append(contentsOf: list.reversed())
             self.model.storys.accept(storys)
         }
