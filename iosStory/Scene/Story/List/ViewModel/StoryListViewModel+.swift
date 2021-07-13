@@ -51,7 +51,7 @@ extension StoryListViewModel {
                                        moreAction: self.openMore)
                 return story
             }
-            self.model.storys.accept(list)
+            self.model.storys.accept(list.reversed())
         }
     }
     

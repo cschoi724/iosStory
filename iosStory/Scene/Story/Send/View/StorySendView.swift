@@ -69,6 +69,7 @@ class StorySendView : XibView{
         send_btn.layer.masksToBounds = true
         send_btn.layer.addSublayer(sendBtnGradient)
         
+        
     }
     
     func setShadow(){

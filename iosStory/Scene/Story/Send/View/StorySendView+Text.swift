@@ -53,9 +53,10 @@ extension StorySendView : UITextViewDelegate{
         
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.count
-        let trimCount = textView.text.components(separatedBy: "\n").count - 1
         let trim = text == "\n" ? 1 : 0
-        if numberOfChars + ((trimCount + trim) * weight) <= maxTextCount {
+        let trimCount = textView.text.components(separatedBy: "\n").count - 1 + trim
+        
+        if numberOfChars + (trimCount * weight) - trimCount <= maxTextCount {
             return true
         }else{
             Toast.show("300자 이상 입력할 수 없습니다.")

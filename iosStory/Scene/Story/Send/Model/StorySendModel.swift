@@ -24,4 +24,6 @@ class StorySendModel {
     let weight = BehaviorRelay<Int>(value: 20)
     let maxTextCount = BehaviorRelay<Int>(value: 300)
     let minTextCount = BehaviorRelay<Int>(value: 10)
+    
+    
 }

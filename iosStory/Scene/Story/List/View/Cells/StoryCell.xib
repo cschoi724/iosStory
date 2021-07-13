@@ -205,6 +205,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="date_view" destination="lkR-7n-HUd" id="o9o-9B-FaX"/>
                 <outlet property="gender_imageView" destination="PDT-Ig-Zyz" id="l1r-xS-XGA"/>
                 <outlet property="insdate_label" destination="6o9-2f-XXc" id="8NO-eJ-Rn6"/>
                 <outlet property="message_frame_view" destination="jrk-69-sTF" id="B6I-6I-L6C"/>

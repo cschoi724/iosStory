@@ -36,7 +36,9 @@ class RESTManager : NSObject{
                 case .success(let res):
                     print(res)
                     completionHandler(res)
-                case .failure(let error): print(error)
+                case .failure(let error):
+                    print(error)
+                    completionHandler(nil)
                 }
             }
     }

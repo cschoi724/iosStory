@@ -34,6 +34,7 @@ extension StorySendView {
             .drive{ [weak self] in
                 guard let self = self else{ return }
                 self.placeholder_label.isHidden = $0
+                self.sendBtnGradient.isHidden = !$0
             }
             .disposed(by: bag)
         

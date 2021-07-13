@@ -51,7 +51,7 @@ class StorySendViewModel {
         model.text
             .map{ text in
                 let trimCount = text.components(separatedBy: "\n").count - 1
-                return text.count + (trimCount*20)
+                return text.count + (trimCount*20) - trimCount
             }
             .bind(to: model.textCount)
             .disposed(by: bag)
@@ -91,8 +91,13 @@ class StorySendViewModel {
             .bind {[weak self]( text, fromUser, toUser) in
                 guard let self = self else{ return}
                 self.model.keyboardDown.onNext(())
-                self.send(fromUser, to: toUser, text: text){ _ in
-                    self.model.text.accept("")
+                self.model.removeFromSuperview.onNext(())
+                self.send(fromUser, to: toUser, text: text){ res in
+                    if res {
+                        Toast.show("사연이 전송되었습니다")
+                    }else{
+                        Toast.show("사연 전송에 실패했습니다.")
+                    }
                 }
             }
             .disposed(by: bag)

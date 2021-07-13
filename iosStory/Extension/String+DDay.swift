@@ -18,9 +18,11 @@ extension String{
             return nil
         }
         
-        print(currentDate)
-        
-        guard let second = calendar.dateComponents([.second], from: endDate, to: currentDate).second else{
+        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: currentDate))
+        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset),
+                                                    to: currentDate) else {return nil}
+
+        guard let second = calendar.dateComponents([.second], from: endDate, to: localDate).second else{
             return nil
         }
 
