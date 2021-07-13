@@ -14,18 +14,18 @@ extension String{
         let dateFormatter = DateFormatter()
      
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: currentDate))
         guard let endDate = dateFormatter.date(from: self) else{
             return nil
         }
-        
-        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: currentDate))
-        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset),
-                                                    to: currentDate) else {return nil}
-
-        guard let second = calendar.dateComponents([.second], from: endDate, to: localDate).second else{
+        guard let localEndDate = calendar.date(byAdding: .second, value: Int(timeZoneOffset),
+                                                    to: endDate) else {return nil}
+                
+        guard let second = calendar.dateComponents([.second], from: localEndDate, to: currentDate).second else{
             return nil
         }
-
+        
         return second
     }
     

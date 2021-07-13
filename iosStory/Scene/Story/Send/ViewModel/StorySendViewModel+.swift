@@ -15,7 +15,7 @@ extension StorySendViewModel {
                             no: 4781,
                             id: "cschoi724",
                             gender: "m",
-                            thumbnailUrl: "")
+                            thumbnailUrl: "https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2Fportrait%2F202105%2F20210514170055590.jpg")
         self.model.fromUser.onNext(fromUser)
         
         let toUser = User(name: "unheyi",

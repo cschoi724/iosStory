@@ -15,21 +15,34 @@ extension StoryListViewModel {
                           no: 4781,
                           id: "cschoi724",
                           gender: "m",
-                          thumbnailUrl: "")
+                          thumbnailUrl: "https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2Fportrait%2F202105%2F20210514170055590.jpg")
         self.model.viewer.accept(viewer)
         let page = self.model.page
         downloadStorys(page)
     }
     
     func downloadStorys(_ page : Int){
+        guard model.requestGuard else {
+            return
+        }
+        model.requestGuard = false
         guard let viewer = self.model.viewer.value else{
             return
         }
+        
+        var storys = self.model.storys.value        
+        guard model.page <= model.totalPage else{
+            return
+        }
+        
         let path = "http://pida83.gabia.io/api/story/page/\(page)?bj_id=\(viewer.id)"
         RESTManager.sharedInstance.request(path){ [weak self] reponse in
             guard let self = self else{ return }
+            self.model.requestGuard = true
             guard let res = reponse else{ return }
             let json = JSON(res)
+            let totalPage = json["total_page"].intValue
+            self.model.totalPage = totalPage
             let list: [StoryModel] = json["list"].arrayValue.map{
                 let regNo = $0["reg_no"].intValue
                 let date = $0["ins_date"].stringValue
@@ -54,9 +67,13 @@ extension StoryListViewModel {
                                        moreAction: self.openMore)
                 return story
             }
-            var storys = self.model.storys.value
-            //주석
-            storys.append(contentsOf: list.reversed())
+            
+            guard !list.isEmpty else{
+                return
+            }
+            
+            self.model.page += 1
+            storys.append(contentsOf: list)
             self.model.storys.accept(storys)
         }
     }
@@ -81,7 +98,6 @@ extension StoryListViewModel {
     }
     
     func pageUp(){
-        let page = model.page + 1
-        downloadStorys(page)
+        downloadStorys(model.page)
     }
 }

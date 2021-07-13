@@ -15,4 +15,6 @@ class StoryListModel {
     var storys = BehaviorRelay<[StoryModel]>(value: [])
     var removeFromSuperview = BehaviorRelay<Bool>(value: false)
     var page = 1
+    var totalPage = 1
+    var requestGuard = true
 }
