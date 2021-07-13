@@ -17,11 +17,14 @@ extension StoryListViewModel {
                           gender: "m",
                           thumbnailUrl: "")
         self.model.viewer.accept(viewer)
-        downloadStorys(viewer)
+        let page = self.model.page
+        downloadStorys(page)
     }
     
-    func downloadStorys(_ viewer: User){
-        let page = self.model.page
+    func downloadStorys(_ page : Int){
+        guard let viewer = self.model.viewer.value else{
+            return
+        }
         let path = "http://pida83.gabia.io/api/story/page/\(page)?bj_id=\(viewer.id)"
         RESTManager.sharedInstance.request(path){ [weak self] reponse in
             guard let self = self else{ return }
@@ -51,7 +54,9 @@ extension StoryListViewModel {
                                        moreAction: self.openMore)
                 return story
             }
-            self.model.storys.accept(list.reversed())
+            var storys = self.model.storys.value
+            storys.append(contentsOf: list.reversed())
+            self.model.storys.accept(storys)
         }
     }
     
@@ -72,5 +77,10 @@ extension StoryListViewModel {
         if let vc = App.visibleViewController(){
             vc.present(alertController, animated: false)
         }
+    }
+    
+    func pageUp(){
+        let page = model.page + 1
+        downloadStorys(page)
     }
 }

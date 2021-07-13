@@ -28,6 +28,7 @@
 		C21C965026997B4700264A87 /* StoryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C21C963F26997B4700264A87 /* StoryListView.xib */; };
 		C21C965626997F2500264A87 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C965526997F2500264A87 /* XibView.swift */; };
 		C21C965826997F8A00264A87 /* UIView+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C965726997F8A00264A87 /* UIView+Animate.swift */; };
+		C23A7D79269D1E50004DF106 /* StoryListView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A7D78269D1E50004DF106 /* StoryListView+Scroll.swift */; };
 		C23C172D269982B00023BA56 /* StoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C172C269982B00023BA56 /* StoryListViewModel.swift */; };
 		C23C172F269982D50023BA56 /* StoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C172E269982D50023BA56 /* StoryListModel.swift */; };
 		C23C1733269983480023BA56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C1732269983480023BA56 /* User.swift */; };
@@ -67,6 +68,7 @@
 		C21C963F26997B4700264A87 /* StoryListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryListView.xib; sourceTree = "<group>"; };
 		C21C965526997F2500264A87 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		C21C965726997F8A00264A87 /* UIView+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animate.swift"; sourceTree = "<group>"; };
+		C23A7D78269D1E50004DF106 /* StoryListView+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoryListView+Scroll.swift"; sourceTree = "<group>"; };
 		C23C172C269982B00023BA56 /* StoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListViewModel.swift; sourceTree = "<group>"; };
 		C23C172E269982D50023BA56 /* StoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListModel.swift; sourceTree = "<group>"; };
 		C23C1732269983480023BA56 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				C21C963B26997B4700264A87 /* StoryListView.swift */,
 				C21C963A26997B4700264A87 /* StoryListView+Bind.swift */,
 				C21C963C26997B4700264A87 /* StoryListView+Table.swift */,
+				C23A7D78269D1E50004DF106 /* StoryListView+Scroll.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				C21C964526997B4700264A87 /* StorySendViewModel.swift in Sources */,
 				C21C964126997B4700264A87 /* StorySendModel.swift in Sources */,
 				C21C96142699792200264A87 /* AppDelegate.swift in Sources */,
+				C23A7D79269D1E50004DF106 /* StoryListView+Scroll.swift in Sources */,
 				C21C96162699792200264A87 /* SceneDelegate.swift in Sources */,
 				C23C172F269982D50023BA56 /* StoryListModel.swift in Sources */,
 				C21C964026997B4700264A87 /* StorySendView.swift in Sources */,

@@ -20,7 +20,7 @@ extension StoryListView : UITableViewDelegate{
         
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
-
+        
         tableView.rx.setDelegate(self).disposed(by: bag)
         setDatasource()
     }
@@ -34,4 +34,5 @@ extension StoryListView : UITableViewDelegate{
         }.disposed(by: bag)
     }
 
+    
 }
