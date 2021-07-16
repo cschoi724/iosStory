@@ -50,9 +50,9 @@ class StoryCell : UITableViewCell{
         message_frame_view.layer.cornerRadius = 5
         
         if model.read {
-            message_frame_view.backgroundColor = UIColor(r: 241, g: 238, b: 255)
-        }else{
             message_frame_view.backgroundColor = UIColor(r: 238, g: 238, b: 238)
+        }else{
+            message_frame_view.backgroundColor = UIColor(r: 241, g: 238, b: 255)
         }
         
         if let sec = model.date.DDay{
